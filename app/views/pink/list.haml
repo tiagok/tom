@@ -24,7 +24,8 @@
         
       %div.gl_autor
         %strong autor:
-        = post.user.avatar
+        - if post.user
+          = post.user.avatar
       %div.float.gl_botao
         = link_to 'Show', post
       %div.float.gl_botao
