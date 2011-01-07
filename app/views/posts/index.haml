@@ -1,0 +1,24 @@
+%div.float.posts_index.cabecalho título
+%div.float.posts_index.cabecalho post
+%div.float.posts_index.cabecalho usuário
+
+- @posts.each do |post|
+  %div.float.clear.posts_index
+    = post.title
+  %div.float.posts_index
+    = post.text
+  %div.float.posts_index
+    = post.user.avatar
+  %div.float.posts_index
+    = link_to 'Show', post
+  %div.float.posts_index
+    = link_to 'Edit', edit_post_path(post)
+  %div.float.posts_index
+    = link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete
+
+%div.clear.posts_index
+  = link_to 'New Post', new_post_path
+
+%div.posts_index.cabecalho
+  = link_to "blue", '/posts/blue', :remote => true
+%div#blue.posts_index.cabecalho la longe na praia

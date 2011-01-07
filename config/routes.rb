@@ -1,4 +1,31 @@
 Tom5::Application.routes.draw do
+  
+  get 'posts/blue'
+  get 'pink/index'
+  get 'pink/list'
+  get 'access/index'
+  get 'access/login'
+  get 'access/menu'
+  get 'access/attempt_login'
+  get 'access/logout'
+  post 'access/attempt_login'
+  
+  resources :identifications
+  resources :illustrations
+  resources :tags do
+    resources :identifications
+  end
+  resources :images do
+    resources :illustrations
+  end
+  resources :posts do
+    resources :identifications
+    resources :illustrations
+  end
+  resources :users do
+    resources :posts
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,0 +1,11 @@
+= form_tag(:action => 'attempt_login') do
+  %div
+    = label_tag(:username)
+  %div
+    = text_field_tag(:username)
+  %div
+    = label_tag(:password)
+  %div
+    = password_field_tag(:password)
+  %div
+    = submit_tag("Log in")

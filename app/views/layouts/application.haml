@@ -1,0 +1,17 @@
+!!! html
+%html
+  %head
+    %title tom 3
+    = stylesheet_link_tag 'app'
+    = csrf_meta_tag
+    =# javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js'
+    =# javascript_include_tag 'jquery-1.4.4.min.js'
+    = javascript_include_tag 'jquery-1.4.4.js'
+    = javascript_include_tag 'jquery.rails.js'
+    = javascript_include_tag 'application.js'
+
+  %body
+    =# notice
+    %div{:style => "color: green"}
+      = flash[:notice]
+    = yield

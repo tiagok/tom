@@ -1,0 +1,48 @@
+:javascript
+  jQuery(function() {
+    $("#alert").click(function() {
+      alert(this.getAttribute("data-message"));
+      return false;
+    })
+  })
+  
+%div#green_list_lateral.float
+  &nbsp;
+%div#green_list_principal
+  - @posts.each do |post|
+    %div.green_list_bloco
+      %div.gl_titulo
+        = post.title
+      %div.gl_post
+        = post.text
+      %div
+      - if not post.images.blank?
+        %div
+          - post.images.each do |image|
+            %div
+              = image_tag image.path
+        
+      %div.gl_autor
+        %strong autor:
+        = post.user.avatar
+      %div.float.gl_botao
+        = link_to 'Show', post
+      %div.float.gl_botao
+        = link_to 'Edit', edit_post_path(post)
+      %div.gl_botao.float
+        = link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete
+
+%br
+%div
+  %a{:href => '#', :id => 'alert', "data-message" => 'Hello UJS!'}
+    click me
+%br
+
+%div
+  = link_to 'New Post', new_post_path
+%div
+  = link_to "blue", '/posts/blue', :remote => true
+%div#blue.posts_index.cabecalho la longe na praia
+
+
+

@@ -1,0 +1,49 @@
+%p#notice
+  = notice
+
+%div.float.p_show
+  post id
+%div.float.p_show
+  = @post.id
+
+%div.float.p_show.clear
+  title
+%div.float.p_show
+  = @post.title
+
+%div.float.p_show.clear
+  %strong text
+%div.float.p_show
+  = @post.text
+
+%div.float.p_show.clear
+  %strong user
+%div.float.p_show
+  = @post.user.avatar
+
+%div.float.p_show.clear
+  %strong images
+%div.float.p_show
+  - @post.images.each do |image|
+    = image.path
+
+%div.float.p_show.clear
+  %strong tags
+%div.float.p_show
+  - @post.tags.each do |tag|
+    = tag.name
+
+%div.float.p_show.clear
+  %strong created at
+%div.float.p_show
+  = @post.created_at
+
+%div.float.p_show.clear
+  %strong updated at
+%div.float.p_show
+  = @post.updated_at
+
+%div.float.p_show.clear.cabecalho
+  = link_to 'Edit', edit_post_path(@post)
+%div.float.p_show.clear.cabecalho
+  = link_to 'Back', posts_path

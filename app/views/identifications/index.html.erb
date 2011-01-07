@@ -1,0 +1,25 @@
+<h1>Listing identifications</h1>
+
+<table>
+  <tr>
+    <th>Tag</th>
+    <th>Post</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @identifications.each do |identification| %>
+  <tr>
+    <td><%= identification.tag_id %></td>
+    <td><%= identification.post_id %></td>
+    <td><%= link_to 'Show', identification %></td>
+    <td><%= link_to 'Edit', edit_identification_path(identification) %></td>
+    <td><%= link_to 'Destroy', identification, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Identification', new_identification_path %>
